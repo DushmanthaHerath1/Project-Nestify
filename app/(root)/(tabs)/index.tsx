@@ -23,12 +23,6 @@ export default function Index() {
       <Text className="my-10 text-3xl font-bold font-rubik-bold">
         Welcome to Nestify
       </Text>
-      <View className="flex-1 justify-center items-center">
-        <Text className="my-10 text-3xl font-normal font-rubik">
-          Hello, World!
-        </Text>
-        <Text className="text-xl font-rubik">This is bold Rubik</Text>
-      </View>
     </View>
   );
 }

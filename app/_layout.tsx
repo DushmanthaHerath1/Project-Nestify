@@ -23,5 +23,5 @@ export default function RootLayout() {
     return null; // Show nothing until fonts are loaded
   }
 
-  return <Stack />;
+  return <Stack screenOptions={{ headerShown: false }} />;
 }
