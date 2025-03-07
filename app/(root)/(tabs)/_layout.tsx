@@ -6,7 +6,7 @@ import React from "react";
 const TabsLayout = () => {
   return (
     <>
-      <StatusBar backgroundColor="#0061ff" style="light" />
+      <StatusBar backgroundColor="#FFF" style="dark" />
       <Stack screenOptions={{ headerShown: false }} />
     </>
   );

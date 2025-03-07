@@ -12,6 +12,7 @@ import images from "@/constants/images";
 import icons from "@/constants/icons";
 import { Link, Redirect, useRouter } from "expo-router";
 import { useGlobalContext } from "@/context/global-provider";
+import { StatusBar } from "expo-status-bar";
 
 const index = () => {
   const router = useRouter();
@@ -22,7 +23,7 @@ const index = () => {
     return <Redirect href={"/(root)/(tabs)/Explore"} />;
 
   return (
-    <SafeAreaView className="h-full bg-white">
+    <SafeAreaView className="flex-1 pt-10 bg-white">
       <ScrollView contentContainerClassName="h-full">
         <Image
           source={images.onboarding}
@@ -59,6 +60,7 @@ const index = () => {
           </Text>
         </View>
       </ScrollView>
+      {/* <StatusBar hidden /> */}
     </SafeAreaView>
   );
 };

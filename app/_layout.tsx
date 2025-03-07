@@ -4,7 +4,6 @@ import "./global.css";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import GlobalProvider from "@/context/global-provider";
-import { StatusBar } from "expo-status-bar";
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -28,7 +27,6 @@ export default function RootLayout() {
   return (
     <GlobalProvider>
       <Stack screenOptions={{ headerShown: false }} /> ;
-      {/* <StatusBar backgroundColor="#0061ff" style="light" /> */}
     </GlobalProvider>
   );
 }
