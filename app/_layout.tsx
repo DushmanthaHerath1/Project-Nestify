@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import "./global.css";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
+import GlobalProvider from "@/context/global-provider";
+import { StatusBar } from "expo-status-bar";
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -23,5 +25,10 @@ export default function RootLayout() {
     return null; // Show nothing until fonts are loaded
   }
 
-  return <Stack screenOptions={{ headerShown: false }} />;
+  return (
+    <GlobalProvider>
+      <Stack screenOptions={{ headerShown: false }} /> ;
+      {/* <StatusBar backgroundColor="#0061ff" style="light" /> */}
+    </GlobalProvider>
+  );
 }
