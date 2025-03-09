@@ -60,6 +60,7 @@ const FormFeild: React.FC<FormFieldProps> = ({
           <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
             <Image
               source={showPassword ? icons.hidePassword : icons.showPassword}
+              tintColor={"#0061FF"}
               className="w-8 h-8 mt-2 "
             />
           </TouchableOpacity>

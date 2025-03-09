@@ -24,6 +24,7 @@ interface GlobalContextType {
   setUser: React.Dispatch<React.SetStateAction<User | null>>;
   isLoading: boolean;
   setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+  refetch?: () => void;
 }
 
 // Create the context with the correct type or undefined if no provider is used
