@@ -6,6 +6,7 @@ import {
   ID,
   OAuthProvider,
   Query,
+  Models,
 } from "react-native-appwrite";
 
 import * as Linking from "expo-linking";
@@ -29,6 +30,11 @@ export const config = {
   propertiesCollectionId:
     process.env.EXPO_PUBLIC_APPWRITE_PROPERTIES_COLLECTION_ID || "",
 };
+
+// export type Models.Document={
+//   $id : string
+//   $
+// }
 
 const client = new Client();
 
@@ -119,5 +125,57 @@ export const signOut_fn = async () => {
     return session;
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const getLatestProperties = async () => {
+  try {
+    const result = await databases.listDocuments(
+      config.databaseId!,
+      config.propertiesCollectionId!,
+      [Query.orderAsc("$createdAt"), Query.limit(5)]
+    );
+    return result.documents;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
+
+export const getProperties = async ({
+  filter,
+  query,
+  limit,
+}: {
+  filter: string;
+  query: string;
+  limit?: number;
+}) => {
+  try {
+    const buildQuery = [Query.orderDesc("$createdAt")];
+
+    if (filter && filter != "All") {
+      buildQuery.push(Query.equal("type", filter));
+    }
+
+    if (query) {
+      buildQuery.push(
+        Query.or([
+          Query.search("name", query),
+          Query.search("address", query),
+          Query.search("type", query),
+        ])
+      );
+    }
+    if (limit) buildQuery.push(Query.limit(limit));
+    const result = await databases.listDocuments(
+      config.databaseId!,
+      config.propertiesCollectionId!,
+      buildQuery
+    );
+    return result.documents;
+  } catch (error) {
+    console.error(error);
+    return [];
   }
 };

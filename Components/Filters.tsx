@@ -26,6 +26,7 @@ const Filters = () => {
     >
       {categories.map((item, index) => (
         <TouchableOpacity
+          key={index}
           onPress={() => handleCategory(item.category)}
           className={`flex flex-col items-start px-5 py-2 mr-4 rounded-full ${
             selectedCategory == item.category
