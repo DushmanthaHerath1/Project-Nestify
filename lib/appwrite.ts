@@ -179,3 +179,4 @@ export const getProperties = async ({
     return [];
   }
 };
+export const getPropertyId = async () => {};
