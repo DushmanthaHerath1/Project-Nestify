@@ -179,4 +179,17 @@ export const getProperties = async ({
     return [];
   }
 };
-export const getPropertyId = async () => {};
+
+export const getPropertyById = async ({ id }: { id: string }) => {
+  try {
+    const result = await databases.getDocument(
+      config.databaseId!,
+      config.propertiesCollectionId!,
+      id
+    );
+    return result;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};

@@ -56,7 +56,7 @@ const Home = () => {
       <FlatList
         data={properties}
         renderItem={({ item }) => (
-          <Card item={item} onPress={() => handleCardPress} />
+          <Card item={item} onPress={() => handleCardPress(item.$id)} />
         )}
         keyExtractor={(item) => item.$id}
         numColumns={2}
@@ -117,7 +117,10 @@ const Home = () => {
                 <FlatList
                   data={properties}
                   renderItem={({ item }) => (
-                    <FeaturedCard item={item} onPress={() => handleCardPress} />
+                    <FeaturedCard
+                      item={item}
+                      onPress={() => handleCardPress(item.$id)}
+                    />
                   )}
                   keyExtractor={(item) => item.$id}
                   horizontal

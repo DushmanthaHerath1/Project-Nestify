@@ -40,7 +40,7 @@ const Sign_In = () => {
 
       await signIn_fn(form.email, form.password);
       //set it to global state...
-      router.replace("/(root)/(tabs)/Profile");
+      router.replace("/(root)/(tabs)/Home");
     } catch (error: any) {
       Alert.alert("Error", error.message);
     } finally {
